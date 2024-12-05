@@ -141,6 +141,12 @@ class NeededTextstyles {
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
+  static TextStyle stykishblac= TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
   static TextStyle style18= TextStyle(
     fontFamily: 'Poppins',
     fontSize: 25,
@@ -240,7 +246,12 @@ class NeededTextstyles {
     fontWeight: FontWeight.w400,
     color: maintheme1,
   );
-
+  static TextStyle green= TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Darktheme1,
+  );
 
           // others
   static TextStyle commonhead= TextStyle(

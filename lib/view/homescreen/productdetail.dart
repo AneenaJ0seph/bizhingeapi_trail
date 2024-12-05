@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_colors.dart';
+import '../../common/textconstants.dart';
 import '../../controller/cartcontroller.dart';
 import '../../model/productmodel.dart';
 
@@ -20,7 +22,8 @@ class ProductDetail extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           product.productName ?? 'Product Details',
-          style: const TextStyle(color: Colors.black),
+            style: NeededTextstyles.commonhead,
+
         ),
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
@@ -44,47 +47,43 @@ class ProductDetail extends StatelessWidget {
             // Product Name
             Text(
               product.productName ?? 'Unnamed Product',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: NeededTextstyles.stykishblac,
             ),
             const SizedBox(height: 10),
 
             // Product Price
             Text(
               'Price: ₹${product.price ?? 'N/A'}',
-              style: const TextStyle(
-                fontSize: 18,
-                color: Colors.green,
-              ),
+              style: NeededTextstyles.green,
+
             ),
             const SizedBox(height: 30),
 
-            // Product Description
+            // Product Description... cartController.addToCart(product);
             Text(
               product.productDetails ?? 'No description available.',
-              style: const TextStyle(fontSize: 16),
+              style: NeededTextstyles.blc15,
             ),
             const SizedBox(height: 20),
 
             // Add to Cart Button
+            Spacer(),
             Center(
               child: ElevatedButton(
                 onPressed: () {
                   cartController.addToCart(product);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: lighttheme79,
                   padding: const EdgeInsets.symmetric(
                       horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Add to Cart',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: NeededTextstyles.style13,
                 ),
               ),
             ),

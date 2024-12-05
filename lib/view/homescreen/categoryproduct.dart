@@ -21,7 +21,8 @@ class CategoryProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${category.name} Products'),
+        title: Text('${category.name} Products',
+          style: NeededTextstyles.commonhead,),
       ),
       body: categoryProducts.isEmpty
           ? Center(child: Text('No products available for this category.'))
