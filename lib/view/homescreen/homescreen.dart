@@ -1,3 +1,4 @@
+import 'package:bizhingebase/view/homescreen/productdetail.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,55 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: Text("data"),
+        title: Text("Welcome"),
+          // FutureBuilder<String>(
+          //   future: fetchUserName(),
+          //   builder: (context, snapshot) {
+          //     if (snapshot.connectionState == ConnectionState.waiting) {
+          //       return Text(
+          //         ".....",
+          //         style: GoogleFonts.kaushanScript(
+          //           fontSize: 25,
+          //           color: maintheme1,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //       );
+          //     } else if (snapshot.hasError) {
+          //       return Text(
+          //         "!!!!!!",
+          //         style: GoogleFonts.oldStandardTt(
+          //           fontSize: 25,
+          //           color:red,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //       );
+          //     } else {
+          //       final userName = snapshot.data ?? "Guest";
+          //       return Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             "Hi $userName",
+          //             style: GoogleFonts.kaushanScript(
+          //               fontSize: 20,
+          //               color: maintheme1,
+          //               fontWeight: FontWeight.w500,
+          //             ),
+          //           ),
+          //           Text(
+          //             "Welcome",
+          //             style: GoogleFonts.paprika(
+          //               fontSize: 13,
+          //               fontWeight: FontWeight.w400,
+          //               color:black,
+          //             ),
+          //           ),
+          //
+          //         ],
+          //       );
+          //     }
+          //   },
+          // )
           actions: [
             IconButton(
 
@@ -63,14 +112,17 @@ class HomeScreen extends StatelessWidget {
                   child: Icon(Icons.notifications_none_outlined,
                       color: Darktheme1),)
             ),
-          ]
+          ],
+
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(15),
           child: Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 20),
               CarouselSlider.builder(
                 itemCount: banners.length,
                 itemBuilder: (context, index, _) {
@@ -132,79 +184,86 @@ class HomeScreen extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     final product = controller.products[index];
-                    return Card(
-                      color: white,
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          // Product Image
-                          product.image != null
-                              ? Expanded(
-                            child: Image.network(
-                              product.image!,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  Icon(Icons.image_not_supported),
+                    return GestureDetector(
+                      onTap: () {
+                        // Use GetX for navigation
+                        Get.to(() => ProductDetail(product: product));
+                      },
+                      child: Card(
+
+                        color: white,
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            // Product Image
+                            product.image != null
+                                ? Expanded(
+                              child: Image.network(
+                                product.image!,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    Icon(Icons.image_not_supported),
+                              ),
+                            )
+                                : Expanded(
+                              child: Icon(Icons.image, size: 50),
                             ),
-                          )
-                              : Expanded(
-                            child: Icon(Icons.image, size: 50),
-                          ),
-                          // Product Name and Price with Add Icon
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                // Product Name
-                                Expanded(
-                                  child: Text(
-                                    product.productName ?? 'Unnamed Product',
-                                    style: NeededTextstyles.style03,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                // Add Icon Button
-                                Container(
-                                  height: 25,
-                                  width: 25,
-                                  decoration: BoxDecoration(
-                                    color: maintheme1,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: IconButton(
-                                    padding: EdgeInsets.zero,
-                                    icon: Icon(
-                                      Icons.add,
-                                      size: 20,
-                                      color: Color(0xff333333),
+                            // Product Name and Price with Add Icon
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  // Product Name
+                                  Expanded(
+                                    child: Text(
+                                      product.productName ?? 'Unnamed Product',
+                                      style: NeededTextstyles.style03,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
-                                    onPressed: () {
-                                      cartController.addToCart(product);
-                                      // Navigator.push(
-                                      //   context,
-                                      //   MaterialPageRoute(builder: (context) => CartPage()),
-                                      // );
-                                    },
                                   ),
-                                ),
-                              ],
+                                  // Add Icon Button
+                                  Container(
+                                    height: 25,
+                                    width: 25,
+                                    decoration: BoxDecoration(
+                                      color: maintheme1,
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      icon: Icon(
+                                        Icons.add,
+                                        size: 20,
+                                        color: Color(0xff333333),
+                                      ),
+                                      onPressed: () {
+                                        cartController.addToCart(product);
+                                        // Navigator.push(
+                                        //   context,
+                                        //   MaterialPageRoute(builder: (context) => CartPage()),
+                                        // );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          // Product Price
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text(
-                              'Price: ${product.price ?? 'N/A'}',
-                              style: NeededTextstyles.style04,
+                            // Product Price
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Price: ${product.price ?? 'N/A'}',
+                                style: NeededTextstyles.style04,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     )
                     ;

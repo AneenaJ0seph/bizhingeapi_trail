@@ -83,7 +83,7 @@ class ProductDetail extends StatelessWidget {
                 ),
                 child: Text(
                   'Add to Cart',
-                    style: NeededTextstyles.style13,
+                    style: NeededTextstyles.whit15,
                 ),
               ),
             ),

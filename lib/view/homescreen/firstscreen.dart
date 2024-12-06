@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../common/app_colors.dart';
+
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
   @override
@@ -39,7 +41,7 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       body: SafeArea(
         child: pages[currentIndex],
       ),
@@ -57,7 +59,9 @@ class _FirstScreenState extends State<FirstScreen> {
           duration: Duration(milliseconds: 100),
           gap: 8,
           color: Colors.grey[800],
+          activeColor: Darktheme1,
           iconSize: 24,
+          tabBackgroundColor: lighttheme42,
           padding: EdgeInsets.symmetric(horizontal: 6, vertical: 5),
           selectedIndex: currentIndex,
           onTabChange: (index) {
@@ -85,23 +89,23 @@ class _FirstScreenState extends State<FirstScreen> {
           ],
         ),
       ),
-      floatingActionButton:
-          (currentIndex == 0 || currentIndex == 1 || currentIndex == 3)
-              ? FloatingActionButton(
-                  elevation: 0,
-                  onPressed: _openWhatsApp,
-                  backgroundColor: Colors.transparent,
-                  child: ClipOval(
-                    child: Image.asset(
-                      'assets/img.png',
-                      fit: BoxFit.fill,
-                      width: 50.0,
-                      height: 50.0,
-                    ),
-                  ),
-                  heroTag: "whatsappBtn",
-                )
-              : null,
+      floatingActionButton: (currentIndex == 0 || currentIndex == 1 ||
+          currentIndex == 3)
+          ? FloatingActionButton(
+        elevation: 0,
+        onPressed: _openWhatsApp,
+        backgroundColor: Colors.transparent,
+        child: ClipOval(
+          child: Image.asset(
+            'assets/img.png',
+            fit: BoxFit.fill,
+            width: 50.0,
+            height: 50.0,
+          ),
+        ),
+        heroTag: "whatsappBtn",
+      )
+          : null,
     );
   }
 }
