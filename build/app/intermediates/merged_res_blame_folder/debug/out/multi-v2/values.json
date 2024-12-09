@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-25:/values/values.xml",
+            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-27:/values/values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Aneena\\.gradle\\caches\\transforms-3\\8c0b0e7c19f5961e6360798e7f3aa73b\\transformed\\jetified-window-1.2.0\\res\\values\\values.xml",

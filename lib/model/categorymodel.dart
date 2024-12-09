@@ -6,11 +6,13 @@ List<Category> categoryFromJson(String str) =>
 class Category {
   int? id;
   String? name;
+  String? image;
 
-  Category({this.id, this.name});
+  Category({this.id, this.name, this.image});
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json["id"],
         name: json["name"],
+        image: json["image"],
       );
 }

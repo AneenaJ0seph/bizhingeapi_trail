@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-25:/values-ca/values-ca.xml",
+            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-27:/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Aneena\\.gradle\\caches\\transforms-3\\ea8da36412d810755b559fcc09bd64f3\\transformed\\browser-1.8.0\\res\\values-ca\\values-ca.xml",

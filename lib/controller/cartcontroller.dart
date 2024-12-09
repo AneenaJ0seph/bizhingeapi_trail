@@ -203,8 +203,8 @@ import 'package:http/http.dart' as http;
 import '../model/productmodel.dart';
 
 class CartController extends GetxController {
-  // API base URL
-  final String baseUrl = 'http://your-api-url.com'; // Replace with your API base URL
+  // // API base URL
+  final String baseUrl = 'https://apib2b-production.up.railway.app/api'; // Replace with your API base URL
 
   // Observable list of cart items
   var cartItems = <Product>[].obs;
@@ -213,7 +213,7 @@ class CartController extends GetxController {
   var totalPrice = 0.0.obs;
 
   // Observable for user address
-  var userAddress = ''.obs;
+  var address = ''.obs;
 
   // Observable for loading state
   var isLoading = false.obs;
@@ -349,13 +349,13 @@ class CartController extends GetxController {
     isLoading.value = true;
     try {
       final response = await http.put(
-        Uri.parse('$baseUrl/business_users/1/address'), // Replace '1' with user ID
+        Uri.parse('$baseUrl/business_users/'), // Replace '1' with user ID
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'address': newAddress}),
       );
 
       if (response.statusCode == 200) {
-        userAddress.value = newAddress;
+        address.value = newAddress;
         Get.snackbar('Success', 'Address updated successfully.');
       } else {
         Get.snackbar('Error', 'Failed to update address.');

@@ -1,13 +1,15 @@
 import 'dart:convert';
 
+// Function to parse JSON response
 List<BusinessUser> businessUserFromJson(String str) =>
     List<BusinessUser>.from(json.decode(str).map((x) => BusinessUser.fromJson(x)));
 
+// Function to convert object to JSON format
 String businessUserToJson(List<BusinessUser> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class BusinessUser {
-  final int id;
+  final int? id;
   final String companyName;
   final String contactPerson;
   final String email;
@@ -16,7 +18,7 @@ class BusinessUser {
   final String uploadedFile;
 
   BusinessUser({
-    required this.id,
+    this.id,
     required this.companyName,
     required this.contactPerson,
     required this.email,
@@ -44,4 +46,24 @@ class BusinessUser {
     "address": address,
     "uploaded_file": uploadedFile,
   };
+
+  // To help with updating profile locally
+  BusinessUser copyWith({
+    String? companyName,
+    String? contactPerson,
+    String? email,
+    String? phone,
+    String? address,
+    String? uploadedFile,
+  }) {
+    return BusinessUser(
+      id: this.id,
+      companyName: companyName ?? this.companyName,
+      contactPerson: contactPerson ?? this.contactPerson,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      address: address ?? this.address,
+      uploadedFile: uploadedFile ?? this.uploadedFile,
+    );
+  }
 }

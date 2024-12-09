@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-25:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.example.bizhingebase.app-mergeDebugResources-27:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Aneena\\.gradle\\caches\\transforms-3\\ea8da36412d810755b559fcc09bd64f3\\transformed\\browser-1.8.0\\res\\values-en-rAU\\values-en-rAU.xml",

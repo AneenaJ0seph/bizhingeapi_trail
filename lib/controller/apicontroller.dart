@@ -6,6 +6,7 @@ import '../model/usermodel.dart';
 
 class ApiService {
   static const String baseUrl = 'https://apib2b-production.up.railway.app/api';
+  // static const String baseUrl = 'http://192.168.1.6:8000/api';
 
   Future<List<Category>> fetchCategories() async {
     final response = await http.get(Uri.parse('$baseUrl/categories/'));
