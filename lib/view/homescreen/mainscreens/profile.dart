@@ -30,9 +30,9 @@ class Item {
 
 class Profile extends StatelessWidget {
   final String companyName;
-  final String contactPerson;
 
-  Profile({super.key, required this.companyName, required this.contactPerson, });
+
+  Profile({super.key, required this.companyName,});
 
   final List<Item> items = [
     Item(
@@ -43,7 +43,7 @@ class Profile extends StatelessWidget {
     Item(
       name: "Orders",
       icon: Icons.shopping_cart_sharp,
-      destination: Order(),
+      destination: OrderDetailScreen(),
     ),
     Item(
       name: "Notification Settings",
@@ -58,7 +58,7 @@ class Profile extends StatelessWidget {
     Item(
       name: "Privacy and Security",
       icon: Icons.security_outlined,
-     destination: Privacy(),
+     destination: PrivacyPolicyPage(),
     ),
     Item(
       name: "Help and Support Center",
@@ -108,10 +108,7 @@ class Profile extends StatelessWidget {
                             companyName,
                             style: NeededTextstyles.styblackish,
                           ),
-                          Text(
-                            contactPerson,
-                            style: NeededTextstyles.style03,
-                          ),
+
                         ],
                       ),
                     ),

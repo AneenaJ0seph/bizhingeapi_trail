@@ -86,7 +86,7 @@ class _SecondPageState extends State<SecondPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => FirstScreen(companyName: widget.companyName, contactPerson: widget.contactPerson,),
+            builder: (context) => FirstScreen(companyName: widget.companyName,),
           ),
         );
       } else {
@@ -126,7 +126,7 @@ class _SecondPageState extends State<SecondPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => FirstScreen(companyName: widget.companyName, contactPerson: widget.contactPerson,),
+            builder: (context) => FirstScreen(companyName: widget.companyName,),
           ),
         );
       } else {

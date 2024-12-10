@@ -69,12 +69,10 @@ class CartScreen extends StatelessWidget {
                         ? "No address provided"
                         : cartController.address.value),
                     trailing: TextButton(
-                      child: Text(cartController.address.value.isEmpty ? "Add" : "Change"),
-                      onPressed: () {
-                         Get.to(() =>
-                             ChangeAddress()
-                        );
-                      }
+                        child: Text(cartController.address.value.isEmpty ? "Add" : "Change"),
+                        onPressed: () {
+                          Get.to(() => ChangeAddress());
+                        }
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -147,14 +145,12 @@ class CartScreen extends StatelessWidget {
                               ),
                               buildRow(
                                 'Sub total',
-                                '₹${cartController.totalPrice.value
-                                    .toStringAsFixed(2)}',
+                                '₹${cartController.totalPrice.value.toStringAsFixed(2)}',
                               ),
                               const SizedBox(height: 8),
                               buildRow(
                                 'Discount price',
-                                '(₹${cartController.discountPrice
-                                    .toStringAsFixed(2)})',
+                                '(₹${cartController.discountPrice.toStringAsFixed(2)})',
                               ),
                               const SizedBox(height: 8),
                               buildRow('Delivery Charge', 'Free'),
@@ -163,8 +159,7 @@ class CartScreen extends StatelessWidget {
                               const SizedBox(height: 8),
                               buildRow(
                                 'Total',
-                                '₹${cartController.finalPrice.toStringAsFixed(
-                                    2)}',
+                                '₹${cartController.finalPrice.toStringAsFixed(2)}',
                                 isBold: true,
                               ),
                               const SizedBox(height: 16),
@@ -172,26 +167,18 @@ class CartScreen extends StatelessWidget {
                                 child: SizedBox(
                                   height: 44,
                                   width: 244,
-
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (cartController.address.value.isEmpty) {
-                                        Get.snackbar("Error", "Please add an address before checkout.");
+                                      if (cartController.cartItems.isEmpty) {
+                                        Get.snackbar("Error", "Please add items to the cart.");
                                       } else {
-                                        cartController.checkout(); // Perform checkout
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                            content: Text('Checkout complete!',style: NeededTextstyles.style05),
-                                          )  ,
-                                      );
+                                        cartController.checkout(); // Call checkout method to place the order and clear the cart
                                       }
-
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: maintheme1,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            15.0),
+                                        borderRadius: BorderRadius.circular(15.0),
                                       ),
                                     ),
                                     child: Text(
@@ -204,7 +191,6 @@ class CartScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ],
                     ),
                   ),
@@ -222,21 +208,20 @@ class CartScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-            label,
-            style: NeededTextstyles.style13
-
+          label,
+          style: NeededTextstyles.style13,
         ),
         Text(
-            value,
-            style: NeededTextstyles.style13
-
+          value,
+          style: NeededTextstyles.style13.copyWith(
+            fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+          ),
         ),
       ],
     );
   }
 
-  Widget buildOptionRow(String label, bool isChecked,
-      ValueChanged<bool?> onChanged) {
+  Widget buildOptionRow(String label, bool isChecked, ValueChanged<bool?> onChanged) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -258,17 +243,3 @@ class CartScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

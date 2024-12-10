@@ -11,14 +11,14 @@ import 'homescreen.dart';
 
 class FirstScreen extends StatefulWidget {
   final String companyName;
-  final String contactPerson;
-  final BusinessUser? businessUser; // Added businessUser field
+
+
 
   FirstScreen({
     super.key,
     required this.companyName,
-    required this.contactPerson,
-    this.businessUser, // Initialized businessUser
+
+
   });
 
   @override
@@ -48,7 +48,7 @@ class _FirstScreenState extends State<FirstScreen> {
       CartScreen(),
       Profile(
         companyName: widget.companyName,
-        contactPerson: widget.contactPerson,
+
         
       ),
     ];
