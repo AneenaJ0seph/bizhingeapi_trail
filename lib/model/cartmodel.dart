@@ -35,3 +35,42 @@ class CartItem {
     };
   }
 }
+
+//
+// import 'dart:convert';
+//
+// class CartModel {
+//   final int id;
+//   final int productId;
+//   final String productName;
+//   final int quantity;
+//   final double price;
+//
+//   CartModel({
+//     required this.id,
+//     required this.productId,
+//     required this.productName,
+//     required this.quantity,
+//     required this.price,
+//   });
+//
+//   factory CartModel.fromJson(Map<String, dynamic> json) {
+//     return CartModel(
+//       id: json['id'],
+//       productId: json['product'],
+//       productName: json['product_name'],
+//       quantity: json['quantity'],
+//       price: double.parse(json['price']),
+//     );
+//   }
+//
+//   Map<String, dynamic> toJson() {
+//     return {
+//       'id': id,
+//       'product': productId,
+//       'product_name': productName,
+//       'quantity': quantity,
+//       'price': price.toString(),
+//     };
+//   }
+// }

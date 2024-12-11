@@ -1,5 +1,6 @@
 
 import 'package:bizhingebase/authenication/signup.dart';
+import 'package:bizhingebase/view/homescreen/mainscreens/cartscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,7 @@ class Profile extends StatelessWidget {
     Item(
       name: "Orders",
       icon: Icons.shopping_cart_sharp,
-      destination: OrderDetailScreen(),
+      destination: CartScreen(),
     ),
     Item(
       name: "Notification Settings",

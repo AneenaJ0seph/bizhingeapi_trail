@@ -4,11 +4,14 @@ import 'package:get/get.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/textconstants.dart';
 import '../../../controller/cartcontroller.dart';
+import '../../../model/productmodel.dart';
 import '../../widgets/cartcontainer.dart';
 import '../detailedviews/addresss.dart';
 
 class CartScreen extends StatelessWidget {
   final CartController cartController = Get.find<CartController>();
+  late final Product product;
+
 
   @override
   Widget build(BuildContext context) {
@@ -168,12 +171,15 @@ class CartScreen extends StatelessWidget {
                                   height: 44,
                                   width: 244,
                                   child: ElevatedButton(
-                                    onPressed: () {
-                                      if (cartController.cartItems.isEmpty) {
-                                        Get.snackbar("Error", "Please add items to the cart.");
-                                      } else {
-                                        cartController.checkout(); // Call checkout method to place the order and clear the cart
-                                      }
+                                    onPressed: ()
+                                    {
+                                      CartController cartController = Get.find(); // Accessing the CartController
+                                      cartController.buyNow(product);
+                                      // if (cartController.cartItems.isEmpty) {
+                                      //   Get.snackbar("Error", "Please add items to the cart.");
+                                      // } else {
+                                      //   cartController.checkout(); // Call checkout method to place the order and clear the cart
+                                      // }
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: maintheme1,

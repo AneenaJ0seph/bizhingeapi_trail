@@ -50,3 +50,56 @@ class Order {
     };
   }
 }
+
+//
+// import 'dart:convert';
+// import 'cartmodel.dart';
+//
+// class Order {
+//   final int businessUserId;
+//   final String billingAddress;
+//   final double totalPrice;
+//   final String orderType;
+//   final List<CartModel> orderProducts;
+//
+//   Order({
+//     required this.businessUserId,
+//     required this.billingAddress,
+//     required this.totalPrice,
+//     required this.orderType,
+//     required this.orderProducts,
+//   });
+//
+//   factory Order.fromJson(Map<String, dynamic> json) {
+//     return Order(
+//       businessUserId: json['business_user'],
+//       billingAddress: json['billing_address'],
+//       totalPrice: double.parse(json['total_price']),
+//       orderType: json['order_type'],
+//       orderProducts: (json['order_products'] as List)
+//           .map((item) => CartModel.fromJson(item))
+//           .toList(),
+//     );
+//   }
+//
+//   Map<String, dynamic> toJson() {
+//     return {
+//       'business_user': businessUserId,
+//       'billing_address': billingAddress,
+//       'total_price': totalPrice.toString(),
+//       'order_type': orderType,
+//       'order_products': orderProducts.map((item) => item.toJson()).toList(),
+//     };
+//   }
+// }
+// // Function to parse JSON string into a list of Order objects
+// List<Order> orderFromJson(String str) {
+//   final jsonData = json.decode(str);
+//   return List<Order>.from(jsonData.map((x) => Order.fromJson(x)));
+// }
+//
+// // Function to convert a list of Order objects back to JSON string
+// String orderToJson(List<Order> data) {
+//   return json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+// }
+//

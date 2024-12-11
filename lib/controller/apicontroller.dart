@@ -43,29 +43,57 @@ class ApiService {
   }
 
   // Fetch orders
-  Future<List<Order>> fetchOrders() async {
-    final response = await http.get(Uri.parse('$baseUrl/orders/'));
+  // Future<List<Order>> fetchOrders() async {
+  //   final response = await http.get(Uri.parse('$baseUrl/orders/'));
+  //
+  //   if (response.statusCode == 200) {
+  //     return orderFromJson(response.body); // Convert JSON response to a list of Order objects
+  //   } else {
+  //     throw Exception('Failed to fetch orders');
+  //   }
+  // }
 
-    if (response.statusCode == 200) {
-      return orderFromJson(response.body); // Convert JSON response to a list of Order objects
-    } else {
-      throw Exception('Failed to fetch orders');
+  // // Place an order
+  // Future<Order> placeOrder(Order order) async {
+  //   final response = await http.post(
+  //     Uri.parse('$baseUrl/orders/'),
+  //     headers: {'Content-Type': 'application/json'},
+  //     body: jsonEncode(order.toJson()), // Convert the order to JSON
+  //   );
+  //
+  //   if (response.statusCode == 201) {
+  //     // Order placed successfully
+  //     return Order.fromJson(jsonDecode(response.body));
+  //   } else {
+  //     // Throw an error for a failed request
+  //     throw Exception('Failed to place order: ${response.statusCode}');
+  //   }
+  // }
+
+  Future<List<Order>> fetchOrders() async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/orders/'));
+
+      if (response.statusCode == 200) {
+        return orderFromJson(response.body); // Convert JSON response to a list of Order objects
+      } else {
+        throw Exception('Failed to fetch orders: ${response.reasonPhrase}');
+      }
+    } catch (e) {
+      throw Exception('Error fetching orders: $e');
     }
   }
 
-  // Place an order
-  Future<Order> placeOrder(Order order) async {
+  Future<void> placeOrder(Order order) async {
     final response = await http.post(
       Uri.parse('$baseUrl/orders/'),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(order.toJson()), // Convert the order to JSON
+      body: jsonEncode(order.toJson()),
     );
 
     if (response.statusCode == 201) {
-      // Order placed successfully
-      return Order.fromJson(jsonDecode(response.body));
+      print('Order placed successfully!');
     } else {
-      // Throw an error for a failed request
       throw Exception('Failed to place order: ${response.statusCode}');
     }
   }
