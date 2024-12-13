@@ -62,7 +62,7 @@ class NotificationSettingsController extends GetxController {
   // Toggle setting
   void toggleSetting(RxBool setting) {
     setting.value = !setting.value;
-    _saveSettings(); // Save automatically after each change
+    _saveSettings();
   }
 
   // Set ringtone

@@ -10,8 +10,9 @@ import '../detailedviews/addresss.dart';
 
 class CartScreen extends StatelessWidget {
   final CartController cartController = Get.find<CartController>();
-  late final Product product;
+  late final Product? product; // Make product nullable
 
+  CartScreen({Key? key, this.product}) : super(key: key); // Accept product in constructor
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +76,7 @@ class CartScreen extends StatelessWidget {
                         child: Text(cartController.address.value.isEmpty ? "Add" : "Change"),
                         onPressed: () {
                           Get.to(() => ChangeAddress());
-                        }
-                    ),
+                        }),
                   ),
                   const SizedBox(height: 10),
                   // Cart Summary Section
@@ -117,7 +117,6 @@ class CartScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
@@ -125,26 +124,22 @@ class CartScreen extends StatelessWidget {
                               buildOptionRow(
                                 'Add a sample',
                                 cartController.addSample.value,
-                                    (value) =>
-                                    cartController.toggleAddSample(value ?? false),
+                                    (value) => cartController.toggleAddSample(value ?? false),
                               ),
                               buildOptionRow(
                                 'Add display stand',
                                 cartController.addDisplayStand.value,
-                                    (value) =>
-                                    cartController.toggleAddDisplayStand(value ?? false),
+                                    (value) => cartController.toggleAddDisplayStand(value ?? false),
                               ),
                               buildOptionRow(
                                 'Add brochure',
                                 cartController.addBrochure.value,
-                                    (value) =>
-                                    cartController.toggleAddBrochure(value ?? false),
+                                    (value) => cartController.toggleAddBrochure(value ?? false),
                               ),
                               buildOptionRow(
                                 'Add leafcoin',
                                 cartController.addLeafcoin.value,
-                                    (value) =>
-                                    cartController.toggleAddLeafcoin(value ?? false),
+                                    (value) => cartController.toggleAddLeafcoin(value ?? false),
                               ),
                               buildRow(
                                 'Sub total',
@@ -171,15 +166,12 @@ class CartScreen extends StatelessWidget {
                                   height: 44,
                                   width: 244,
                                   child: ElevatedButton(
-                                    onPressed: ()
-                                    {
-                                      CartController cartController = Get.find(); // Accessing the CartController
-                                      cartController.buyNow(product);
-                                      // if (cartController.cartItems.isEmpty) {
-                                      //   Get.snackbar("Error", "Please add items to the cart.");
-                                      // } else {
-                                      //   cartController.checkout(); // Call checkout method to place the order and clear the cart
-                                      // }
+                                    onPressed: () {
+                                      if (cartController.cartItems.isEmpty) {
+                                        Get.snackbar("Error", "Please add items to the cart.");
+                                      } else {
+                                        cartController.buyNow(product ?? cartController.cartItems.first);
+                                      }
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: maintheme1,
@@ -233,17 +225,17 @@ class CartScreen extends StatelessWidget {
       children: [
         Text(
           label,
-          style: NeededTextstyles.style13, // Your text style
+          style: NeededTextstyles.style13,
         ),
         Checkbox(
           value: isChecked,
           onChanged: (value) {
             if (value != null) {
-              onChanged(value); // Pass the non-null value
+              onChanged(value);
             }
           },
-          activeColor: Colors.white, // Customize active color
-          checkColor: Colors.black, // Customize check color
+          activeColor: Colors.white,
+          checkColor: Colors.black,
         ),
       ],
     );
