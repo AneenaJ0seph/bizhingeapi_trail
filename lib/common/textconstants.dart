@@ -261,6 +261,12 @@ class NeededTextstyles {
     fontWeight: FontWeight.w400,
     color: Darktheme1,
   );
+  static TextStyle splash= TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    color: Darktheme1,
+  );
 
           // red
   static TextStyle error = TextStyle(

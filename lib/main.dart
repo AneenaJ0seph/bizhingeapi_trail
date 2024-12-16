@@ -2,6 +2,7 @@
 
 import 'package:bizhingebase/view/homescreen/detailedviews/profileviews/orderdetailscreen.dart';
 import 'package:bizhingebase/view/homescreen/mainscreens/firstscreen.dart';
+import 'package:bizhingebase/view/homescreen/mainscreens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:  FirstScreen(companyName: 'aswinstore',), // Use const for widgets without dynamic state
+      home:  SplashScreen() // Use const for widgets without dynamic state
     );
   }
 }

@@ -29,6 +29,7 @@ INJECTED from C:\Users\Aneena\StudioProjects\bizhingebase\android\app\src\debug\
 INJECTED from C:\Users\Aneena\StudioProjects\bizhingebase\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from C:\Users\Aneena\StudioProjects\bizhingebase\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 MERGED from [:file_picker] C:\Users\Aneena\StudioProjects\bizhingebase\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_native_splash] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_ringtone_player] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_ringtone_player\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_android] C:\Users\Aneena\StudioProjects\bizhingebase\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -94,6 +95,8 @@ INJECTED from C:\Users\Aneena\StudioProjects\bizhingebase\android\app\src\debug\
 INJECTED from C:\Users\Aneena\StudioProjects\bizhingebase\android\app\src\debug\AndroidManifest.xml
 MERGED from [:file_picker] C:\Users\Aneena\StudioProjects\bizhingebase\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:file_picker] C:\Users\Aneena\StudioProjects\bizhingebase\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_ringtone_player] C:\Users\Aneena\StudioProjects\bizhingebase\build\flutter_ringtone_player\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
